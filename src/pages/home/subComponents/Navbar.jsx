@@ -104,7 +104,7 @@ const LandingNavbarCon = styled.header`
         top:66px;
         left:0;
         display:none;
-        background:black;
+        background:#150E28;
         padding:20px 50px;
         ul{
             li{

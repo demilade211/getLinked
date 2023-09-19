@@ -26,6 +26,7 @@ const HeroSection = () => {
 
 const FirstSectionCon = styled.section`  
     width: 100%;   
+    height:100vh;
     display:grid; 
     padding:20px;
     grid-template-columns:45% 55%; 
