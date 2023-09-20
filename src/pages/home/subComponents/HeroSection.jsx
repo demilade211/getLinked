@@ -57,10 +57,11 @@ const LeftSide = styled.div`
         @media (max-width: 1200px) {  
             font-size: 40px;  
             text-align:center;
-        }
-        @media (max-width: 500px) {  
-            text-align:left;
-        }
+            margin-bottom:10px;
+        } 
+        @media (max-width: 500px) {   
+            font-size: 32px; 
+        }  
     }
     p{ 
         color: #FFF;
@@ -70,24 +71,26 @@ const LeftSide = styled.div`
         font-weight: 400;
         line-height: 166%; /* 33.2px */
         text-align:left;
-        margin-bottom:40px; 
+        margin-bottom:30px; 
         @media (max-width: 1200px) {  
             text-align:center;
-        }
+        } 
         @media (max-width: 500px) {  
-            text-align:left;
-        }
+            color: #FFF;
+            text-align: center;
+            font-family: Montserrat;
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 166%; /* 21.58px */
+        }  
     }
     .btn{
         display:flex;
         @media (max-width: 1200px) { 
             width:100%;
             justify-content:center;
-        }
-        @media (max-width: 500px) { 
-            flex-direction:column; 
-
-        }
+        } 
     }
     @media (max-width: 1200px) { 
         padding-left: 15px;
@@ -104,7 +107,7 @@ const RigthSide = styled.div`
         align-items:center;
         background-image: url('/images/man.svg');
         background-position: center center;
-        background-size: cover;
+        background-size: 100% 100%;
         img{
             width:86%;
             height:86%;
@@ -119,6 +122,7 @@ const RigthSide = styled.div`
 `;
 
 const NavButton = styled.button` 
+    width: 172px;
     height: 44px;   
     padding: 10px 24px;
     border-radius: 4px;

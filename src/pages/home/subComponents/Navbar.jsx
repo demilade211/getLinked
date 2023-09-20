@@ -54,6 +54,7 @@ const LandingNavbarCon = styled.header`
     padding:40px 90px;
     align-items:center; 
     border-bottom:1px solid rgba(255, 255, 255, 0.18);
+    background:#150E28; 
     @media (max-width: 1200px) { 
         padding:0px 50px;  
     }

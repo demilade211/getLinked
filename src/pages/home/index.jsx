@@ -2,12 +2,30 @@ import React from 'react'
 import styled from 'styled-components';
 import Navbar from './subComponents/Navbar';
 import HeroSection from './subComponents/HeroSection';
+import SecondSection from './subComponents/SecondSection';
+import ThirdSection from './subComponents/ThirdSection';
+import FourthSection from './subComponents/FourthSection';
+import FifthSection from './subComponents/FifthSection';
+import Timeline from './subComponents/Timeline';
+import Prizes from './subComponents/Prizes';
+import Partners from './subComponents/Partners';
+import Privacy from './subComponents/Privacy';
+import Footer from './subComponents/Footer';
 
 const index = () => {
   return (
     <Con>
       <Navbar/>
       <HeroSection/>
+      <SecondSection/>
+      <ThirdSection/>
+      <FourthSection/>
+      <FifthSection/>
+      <Timeline/>
+      <Prizes/>
+      {/* <Partners/> */}
+      <Privacy/>
+      <Footer/>
     </Con>
   )
 }
