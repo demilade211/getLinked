@@ -57,7 +57,7 @@ const Con = styled.section`
     padding:100px 20px;
     border-top:1px solid rgba(255, 255, 255, 0.18);  
     @media (max-width: 1200px) { 
-        flex-direction:column;
+        flex-direction:column-reverse;
     }
 `;
 
@@ -105,7 +105,7 @@ const Right = styled.div`
         }
         @media (max-width: 1200px) { 
             text-align:center;
-            font-size: 24px;
+            font-size: 20px;
             width: 100%;  
         }
     }
@@ -131,7 +131,7 @@ const Right = styled.div`
         }
         @media (max-width: 1200px) { 
             text-align:center;
-            font-size: 16px;
+            font-size: 13px;
             width: 100%;  
         }
 
@@ -144,11 +144,15 @@ const Right = styled.div`
       @media (max-width: 1200px) { 
         width:100%;
       }
-      padding:40px;
+      padding:30px;
       .para{
         width: 90%;  
         margin-bottom:30px;  
         text-align:left;
+        @media (max-width: 1200px) { 
+          font-size: 12px;
+          text-align:center;
+        }
       }
       h4{
         color: #D434FE;
@@ -178,6 +182,9 @@ const Right = styled.div`
         p{
           margin-bottom:0;
           text-align:left;
+          @media (max-width: 1200px) { 
+            font-size: 12px;
+          }
         }
       }
       .btn-con{

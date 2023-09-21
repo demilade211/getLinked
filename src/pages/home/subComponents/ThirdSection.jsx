@@ -57,6 +57,9 @@ const Right = styled.div`
     flex-direction:column;
     justify-content:center; 
     padding-left:50px; 
+    @media (max-width: 1200px) { 
+        padding-left:0px;  
+    }
     h3{ 
         width: 80%;    
         color: #FFF;

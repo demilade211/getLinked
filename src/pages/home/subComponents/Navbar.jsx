@@ -17,7 +17,7 @@ const Navbar = () => {
                     <span><Link href={`/`}>Timeline</Link></span>
                     <span><Link href={`/`}>Overview</Link></span>
                     <span><Link href={`/`}>FAQs</Link></span>
-                    <span><Link href={`/`}>Contact</Link></span>
+                    <span><Link href="/contact">Contact</Link></span>
                 </nav>
                 <div> 
                     <NavButton white={false}><Link href={`/auth/signup`}>Register</Link></NavButton>

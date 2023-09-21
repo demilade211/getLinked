@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import Navbar from './subComponents/Navbar';
+import AppLayout from '../../layouts/AppLayout';
 import HeroSection from './subComponents/HeroSection';
 import SecondSection from './subComponents/SecondSection';
 import ThirdSection from './subComponents/ThirdSection';
@@ -15,7 +15,7 @@ import Footer from './subComponents/Footer';
 const index = () => {
   return (
     <Con>
-      <Navbar/>
+      <AppLayout> 
       <HeroSection/>
       <SecondSection/>
       <ThirdSection/>
@@ -23,9 +23,10 @@ const index = () => {
       <FifthSection/>
       <Timeline/>
       <Prizes/>
-      {/* <Partners/> */}
+      <Partners/>
       <Privacy/>
       <Footer/>
+    </AppLayout>
     </Con>
   )
 }
