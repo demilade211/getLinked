@@ -89,6 +89,7 @@ const Right = styled.div`
     padding-left:50px; 
     @media (max-width: 1200px) { 
       padding-left:0px;  
+      padding:20px;
     }
     h3{ 
         width: 80%;    
