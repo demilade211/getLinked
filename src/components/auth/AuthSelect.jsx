@@ -9,11 +9,11 @@ const linkTypes = [
     { value: 'LINKEDIN', label: 'Linkedin' }
   ]
 
-const AuthSelect = ({label,options}) => {
+const AuthSelect = ({label,options,onChange,value}) => {
   return (
     <InputLabelCon>
         <Label>{label}</Label>
-        <Select options={linkTypes} styles={selectStyle} placeholder="Select an option"/>
+        <Select options={options} styles={selectStyle} value={value} onChange={onChange} placeholder="Select an option"/>
     </InputLabelCon>
   )
 }

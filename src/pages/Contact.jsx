@@ -39,9 +39,11 @@ const Contact = () => {
         <Right>
           <div className='form-con'>
             <h2>Questions or need assistance?<br />Let us know about it!</h2>
+            <p className='sub'>Email us below to any question related <br/>to our event</p>
             <AuthInput place="First Name" />
+            <AuthInput place="Topic" />
             <AuthInput place="Mail" />
-            <AuthTextArea />
+            <AuthTextArea placeholder="Message" />
             <div className='btn'>
               <NavButton>Submit</NavButton>
             </div>
@@ -53,13 +55,16 @@ const Contact = () => {
 }
 
 const Con = styled.div`  
-  width: 100%; 
-  height:100vh;
+  width: 100%;  
   border:1px solid black;
   background:#150E28; 
   margin-top:80px;
   display:grid;
   grid-template-columns:50% 50%;
+  padding:40px 0;
+  @media (max-width: 1200px) {  
+    grid-template-columns:100%;  
+  }
 `;
 
 const Left = styled.div`  
@@ -69,6 +74,9 @@ const Left = styled.div`
   display:flex;
   justify-content:center;
   align-items:center;
+  @media (max-width: 1200px) {  
+    display:none;
+  }
   h1{
     color: #D434FE;
     font-family: Clash Display;
@@ -110,18 +118,36 @@ const Right = styled.div`
   height:100vh; 
   display:flex; 
   align-items:center;
+  @media (max-width: 1200px) {  
+    justify-content:center;
+  }
   .form-con{
     width: 80%; 
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.03);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     padding:50px;
+    @media (max-width: 1200px) {  
+      justify-content:center;
+      background: none;
+      box-shadow: none;
+      padding:0px;
+    }
     h2{
       color: #D434FE;
       font-family: Clash Display;
       font-size: 20px;
       font-style: normal;
       font-weight: 600;
+      line-height: normal;
+      margin-bottom:30px;
+    }
+    .sub{
+      color: #FFF;
+      font-family: Montserrat;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
       line-height: normal;
       margin-bottom:30px;
     }

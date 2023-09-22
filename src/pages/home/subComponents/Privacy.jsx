@@ -141,15 +141,16 @@ const Right = styled.div`
       border-radius: 5px;
       border: 1px solid #D434FE;
       background: rgba(217, 217, 217, 0.03); 
-      @media (max-width: 1200px) { 
-        width:100%;
-      }
       padding:30px;
+      @media (max-width: 1200px) { 
+        width:100%; 
+      }
       .para{
         width: 90%;  
         margin-bottom:30px;  
         text-align:left;
         @media (max-width: 1200px) { 
+          width: 100%;  
           font-size: 12px;
           text-align:center;
         }

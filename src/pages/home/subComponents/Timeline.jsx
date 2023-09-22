@@ -20,7 +20,15 @@ const Timeline = () => {
           <TextRight>
             <h3>November 18, 2023</h3>
           </TextRight>
-
+          <MobileTextRightA>
+            <h3>Teams Registration begins</h3>
+            <p>
+              The getlinked tech hackathon 1.0 is formally <br />
+              announced to the general public and teams <br />
+              begin to get ready to register
+            </p>
+            <h3>November 18, 2023</h3>
+          </MobileTextRightA>
         </Step>
         <Line />
         <Step>
@@ -35,6 +43,15 @@ const Timeline = () => {
               getlinked tech hackathon 1.0 2023 by proceeding to register
             </p>
           </TextRightA>
+          <MobileTextRightA>
+            <h3>Teams Registration begins</h3>
+            <p>
+              Interested teams can now show their interest <br />
+              in the getlinked tech hackathon 1.0 2023 by <br />
+              proceeding to register
+            </p>
+            <h3>November 18, 2023</h3>
+          </MobileTextRightA>
 
         </Step>
         <Line />
@@ -47,7 +64,14 @@ const Timeline = () => {
           <TextRight>
             <h3>November 18, 2023</h3>
           </TextRight>
-
+          <MobileTextRightA>
+            <h3>Teams Registration begins</h3>
+            <p>
+              Interested Participants are no longer Allowed<br />
+              to register
+            </p>
+            <h3>November 18, 2023</h3>
+          </MobileTextRightA>
         </Step>
         <Line />
         <Step>
@@ -65,6 +89,15 @@ const Timeline = () => {
               hackathon 1.0 2023 are formally announced
             </p>
           </TextRightA>
+          <MobileTextRightA>
+            <h3>Teams Registration begins</h3>
+            <p>
+              All teams whom idea has been accepted into <br />
+              getlinked tech hackathon 1.0 2023 are formally <br />
+              announced
+            </p>
+            <h3>November 18, 2023</h3>
+          </MobileTextRightA>
         </Step>
         <Line />
         <Step>
@@ -76,7 +109,14 @@ const Timeline = () => {
           <TextRight>
             <h3>November 18, 2023</h3>
           </TextRight>
-
+          <MobileTextRightA>
+            <h3>Teams Registration begins</h3>
+            <p>
+              Accepted teams can now proceed to build <br />
+              their ground breaking skill driven solutions
+            </p>
+            <h3>November 18, 2023</h3>
+          </MobileTextRightA>
         </Step>
         <Line />
         <Step>
@@ -91,6 +131,15 @@ const Timeline = () => {
               this day
             </p>
           </TextRightA>
+          <MobileTextRightA>
+            <h3>Teams Registration begins</h3>
+            <p>
+              Teams get the opportunity to pitch their <br />
+              projects to judges. The winner of the <br />
+              hackathon will also be announced on this day
+            </p>
+            <h3>November 18, 2023</h3>
+          </MobileTextRightA>
         </Step>
       </StepContainer>
 
@@ -99,8 +148,10 @@ const Timeline = () => {
 }
 
 const Con = styled.div`  
-  width: 100%;   
-  padding:50px 0; 
+  width: 100%;    
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
   h1{
     color: #FFF;
     font-family: Clash Display;
@@ -110,6 +161,9 @@ const Con = styled.div`
     line-height: 0%; /* 0px */
     text-align:center;
     margin-bottom:30px;
+    @media (max-width: 1200px) {  
+      font-size: 20px; 
+    }
   }
   .sub{
     color: #FFF;
@@ -127,7 +181,11 @@ const StepContainer = styled.div`
   width:100%;
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;  
+  @media (max-width: 1200px) { 
+    align-items: flex-start; 
+    padding:20px 20px 20px 50px;
+  }
 `;
 
 const Step = styled.div`
@@ -135,8 +193,13 @@ const Step = styled.div`
   position:relative; 
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;  
   margin:10px 0;
+  @media (max-width: 1200px) { 
+    justify-content: flex-start; 
+    margin-bottom:30px;
+    width:100%;
+  }
 `;
 
 const Circle = styled.div` 
@@ -151,6 +214,18 @@ const Circle = styled.div`
   font-weight: bold;
   font-size: 24px;
   margin:0 100px;
+  @media (max-width: 1200px) { 
+    margin:0;
+    width: 19.32px;
+    height: 19.32px;
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-left:-10px;
+  }
 `;
 
 const TextLeft = styled.div`
@@ -159,12 +234,21 @@ const TextLeft = styled.div`
   h3{
     color: #D434FE;
     font-family: Montserrat;
-    font-size: 24px;
+    font-size: 22px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     text-align: right;
     margin-bottom:10px;
+    @media (max-width: 1200px) { 
+      color: #D434FE;
+      font-family: Montserrat;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      display:none;
+    }
   }
   p{
     color: #FFF;
@@ -175,7 +259,16 @@ const TextLeft = styled.div`
     font-weight: 400;
     line-height: 170.9%; /* 23.926px */
     text-align: right;
-  }
+    @media (max-width: 1200px) { 
+      color: #FFF;
+      font-family: Montserrat;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 159.9%; /* 19.188px */
+      display:none;
+    }
+  } 
 `;
 
 const TextLeftA = styled(TextLeft)` 
@@ -185,17 +278,30 @@ const TextLeftA = styled(TextLeft)`
 
 
 const TextRight = styled.div`
+  display:block;
   position:absolute;  
   right:210px;
+  @media (max-width: 1200px) {  
+    display:none;
+  }
   h3{
     color: #D434FE;
     font-family: Montserrat;
-    font-size: 24px;
+    font-size: 22px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     text-align:right;
     margin-bottom:10px;
+    @media (max-width: 1200px) { 
+      color: #D434FE;
+      font-family: Montserrat;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      dislay:none;
+    }
   }
   p{
     color: #FFF;
@@ -206,6 +312,14 @@ const TextRight = styled.div`
     font-weight: 400;
     line-height: 170.9%; /* 23.926px */
     text-align: right;
+    @media (max-width: 1200px) { 
+      color: #FFF;
+      font-family: Montserrat;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 159.9%; /* 19.188px */
+    }
   }
 `;
 
@@ -217,12 +331,66 @@ const TextRightA = styled(TextRight)`
   p{ 
     text-align: left;
   }
+  @media (max-width: 1200px) { 
+    display:none;
+  }
+`;
+
+const MobileTextRightA = styled.div`
+  display:none;
+  position:absolute;   
+  left:15px; 
+  bottom:-7px; 
+  @media (max-width: 1200px) { 
+    display:block;
+  }
+  h3{
+    color: #D434FE;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: left;
+    margin-bottom:10px;
+    @media (max-width: 1200px) { 
+      color: #D434FE;
+      font-family: Montserrat;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+  p{
+    color: #FFF;
+    text-align: right;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 170.9%; /* 23.926px */
+    text-align: left;
+    margin-bottom:10px;
+    @media (max-width: 1200px) { 
+      color: #FFF;
+      font-family: Montserrat;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 159.9%; /* 19.188px */
+    }
+  } 
 `;
 
 const Line = styled.div`
   width: 4px;
   height: 137px;
   background: #D434FE;
+  @media (max-width: 1200px) { 
+    width: 2px;
+    height: 77px
+  }
 `;
 
 export default Timeline

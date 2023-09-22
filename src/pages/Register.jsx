@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components';
 import AppLayout from '../layouts/AppLayout';
 import manondesk from "./home/images/manondesk.svg"
@@ -6,8 +6,80 @@ import fw from "./home/images/fw.svg"
 import sw from "./home/images/sw.svg"
 import AuthInputWithLabel from '../components/auth/AuthInputWithLabel';
 import AuthSelect from '../components/auth/AuthSelect';
+import { getCategoryList, register } from "../services/register"
+import toast from "react-hot-toast";
 
 const Register = () => {
+
+    const linkTypes = [
+        { value: 1, label: 1 },
+        { value: 2, label: 2 },
+        { value: 5, label: 5 },
+        { value: 10, label: 10 },
+
+    ]
+
+    const [user, setUser] = React.useState({
+        email: "",
+        phone_number: "",
+        team_name: "",
+        group_size: 0,
+        project_topic: "",
+        category: 0,
+        privacy_poclicy_accepted: false
+    });
+    const [buttonDisabled, setButtonDisabled] = React.useState(true)
+    const [categories, setCategory] = React.useState([]);
+    const [loading, setLoading] = React.useState(false)
+
+    const handleRegister = async () => {
+        try {
+            setLoading(true)
+            const response = await register(user);
+            console.log(response);
+            setLoading(false)
+        } catch (error) {
+            setLoading(false)
+            toast.error(error.message);
+        }
+    };
+
+    const handleCategory = async () => {
+        try {
+            const response = await getCategoryList(user);
+            let newRes = response.map(val => ({ value: val.id, label: val.name }))
+            setCategory(prev => ([...newRes]))
+        } catch (error) {
+            toast.error(error.message);
+        }
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target// takes the name and vale of event currently changing
+        setUser(prev => ({ ...prev, [name]: value }))
+        
+    }
+    const handleSelectCat = (value) => { // takes the name and vale of event currently changing
+        setUser(prev => ({ ...prev, category: value.value }))
+        
+    }
+    const handleSelectSize = (value) => {
+        setUser(prev => ({ ...prev, group_size: value.value }))
+        
+    }
+
+    const handleCheck = (e) => {
+        setUser(prev => ({ ...prev, privacy_poclicy_accepted: !prev.privacy_poclicy_accepted }))
+    }
+
+    useEffect(() => {
+        const isComplete = Object.values(user).every(item => Boolean(item))//check if all is not empty
+        isComplete ? setButtonDisabled(false) : setButtonDisabled(true)
+        handleCategory()
+    }, [user]);
+
+    console.log(user,buttonDisabled); 
+
     return (
         <AppLayout>
             <Con>
@@ -27,19 +99,19 @@ const Register = () => {
                         <h3>CREATE YOUR ACCOUNT</h3>
 
                         <GridCon>
-                            <AuthInputWithLabel place="Enter the name of your group" label="Team's Name" />
-                            <AuthInputWithLabel place="Enter your phone number" label="Phone" />
-                            <AuthInputWithLabel place="Enter your email address" label="Email" />
-                            <AuthInputWithLabel place="What is your group project topic" label="Project Topic" />
-                            <AuthSelect label="Category" />
-                            <AuthSelect label="Group Size" />
+                            <AuthInputWithLabel type="text" place="Enter the name of your group" label="Team's Name" onChange={handleChange} name="team_name" value={user.team_name} />
+                            <AuthInputWithLabel type="tel" place="Enter your phone number" label="Phone" onChange={handleChange} name="phone_number" value={user.phone_number} />
+                            <AuthInputWithLabel type="email" place="Enter your email address" label="Email" onChange={handleChange} name="email" value={user.email} />
+                            <AuthInputWithLabel type="text" place="What is your group project topic" label="Project Topic" onChange={handleChange} name="project_topic" value={user.project_topic} />
+                            <AuthSelect label="Category" options={categories} value={user.category} onChange={handleSelectCat} />
+                            <AuthSelect label="Group Size" options={linkTypes} value={user.group_size} onChange={handleSelectSize} />
                         </GridCon>
                         <p className='info'>Please review your registration details before submitting</p>
                         <div className='check'>
-                            <input type='checkbox'/>
+                            <input type='checkbox' onChange={handleCheck} />
                             <p>I agreed with the event terms and conditions  and privacy policy</p>
                         </div>
-                        <NavButton>Register Now</NavButton>
+                        <NavButton disabled={buttonDisabled} onClick={handleRegister}>{`${loading ? 'loading...' : 'Register Now'}`}</NavButton>
                     </div>
                 </Right>
             </Con>
