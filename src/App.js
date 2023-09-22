@@ -7,7 +7,7 @@ import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
-    <div>
+    <>
       <Toaster position="top-center" reverseOrder={false} />
       <BrowserRouter>
         <Routes>
@@ -16,7 +16,7 @@ function App() {
           <Route path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter>
-    </div>
+    </>
   );
 }
 

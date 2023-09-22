@@ -159,7 +159,7 @@ const LeftSide = styled.div`
             margin-bottom:10px;
         } 
         @media (max-width: 500px) {   
-            font-size: 30px; 
+            font-size: 32px; 
         }  
     }
     .sub{ 
