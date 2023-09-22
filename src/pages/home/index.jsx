@@ -15,18 +15,18 @@ import Footer from './subComponents/Footer';
 const index = () => {
   return (
     <Con>
-      <AppLayout> 
-      <HeroSection/>
-      <SecondSection/>
-      <ThirdSection/>
-      <FourthSection/>
-      <FifthSection/>
-      <Timeline/>
-      <Prizes/>
-      <Partners/>
-      <Privacy/>
-      <Footer/>
-    </AppLayout>
+      <AppLayout>
+        <HeroSection />
+        <SecondSection />
+        <ThirdSection />
+        <FourthSection />
+        <FifthSection />
+        <Timeline />
+        <Prizes />
+        <Partners />
+        <Privacy />
+        <Footer />
+      </AppLayout>
     </Con>
   )
 }

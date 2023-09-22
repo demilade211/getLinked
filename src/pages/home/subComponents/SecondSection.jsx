@@ -6,10 +6,10 @@ import bulb from "../images/bulb.svg"
 const SecondSection = () => {
     return (
         <Con>
-            <Left>
+            <Left className='btn animate__animated animate__fadeInLeft animate__delay-1s'>
                 <img src={bulb} alt="img" />
             </Left>
-            <Right>
+            <Right className='btn animate__animated animate__fadeInLeft animate__delay-2s'>
                 <h3>Introduction to getlinked <br/> <span>tech Hackathon 1.0</span></h3>
                 <p>
                     Our tech hackathon is a melting pot of visionaries, and its purpose is as

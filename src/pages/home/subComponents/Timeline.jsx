@@ -20,7 +20,7 @@ const Timeline = () => {
           <TextRight>
             <h3>November 18, 2023</h3>
           </TextRight>
-          <MobileTextRightA>
+          <MobileTextRightA className='animate__animated animate__fadeInRight animate__delay-1s'>
             <h3>Teams Registration begins</h3>
             <p>
               The getlinked tech hackathon 1.0 is formally <br />
@@ -43,7 +43,7 @@ const Timeline = () => {
               getlinked tech hackathon 1.0 2023 by proceeding to register
             </p>
           </TextRightA>
-          <MobileTextRightA>
+          <MobileTextRightA className='animate__animated animate__fadeInRight animate__delay-2s'>
             <h3>Teams Registration begins</h3>
             <p>
               Interested teams can now show their interest <br />
@@ -64,7 +64,7 @@ const Timeline = () => {
           <TextRight>
             <h3>November 18, 2023</h3>
           </TextRight>
-          <MobileTextRightA>
+          <MobileTextRightA className='animate__animated animate__fadeInRight animate__delay-3s'>
             <h3>Teams Registration begins</h3>
             <p>
               Interested Participants are no longer Allowed<br />
@@ -89,7 +89,7 @@ const Timeline = () => {
               hackathon 1.0 2023 are formally announced
             </p>
           </TextRightA>
-          <MobileTextRightA>
+          <MobileTextRightA className='animate__animated animate__fadeInRight animate__delay-4s'>
             <h3>Teams Registration begins</h3>
             <p>
               All teams whom idea has been accepted into <br />
@@ -109,7 +109,7 @@ const Timeline = () => {
           <TextRight>
             <h3>November 18, 2023</h3>
           </TextRight>
-          <MobileTextRightA>
+          <MobileTextRightA className='animate__animated animate__fadeInRight animate__delay-5s'>
             <h3>Teams Registration begins</h3>
             <p>
               Accepted teams can now proceed to build <br />
@@ -131,7 +131,7 @@ const Timeline = () => {
               this day
             </p>
           </TextRightA>
-          <MobileTextRightA>
+          <MobileTextRightA className='animate__animated animate__fadeInRight animate__delay-6s'>
             <h3>Teams Registration begins</h3>
             <p>
               Teams get the opportunity to pitch their <br />

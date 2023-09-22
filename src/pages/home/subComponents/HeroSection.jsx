@@ -1,13 +1,15 @@
 import React from 'react'
 import styled from 'styled-components';
 import spark from "../images/spark.svg"
+import sbulb from "../images/line1.svg"
+import chain from "../images/chain.svg"
 import line from "../images/line.svg"
 import glow from "../images/glow.svg"
 
 const HeroSection = () => {
     return (
         <Con>
-            <LineCon>
+            <LineCon className='animate__animated animate__bounce animate__delay-2s'>
                 <h1>Igniting a Revolution in HR Innovation</h1>
                 <div>
                     <img src={line} alt="img" />
@@ -15,11 +17,14 @@ const HeroSection = () => {
             </LineCon>
             <FirstSectionCon>
                 <LeftSide>
-                    <h1>getlinked Tech Hackathon <span>1.0</span></h1>
-                    <p>Participate in getlinked tech Hackathon 2023 stand
+                    <h1 className='animate__animated animate__fadeInDown animate__delay-3s'>getlinked Tech <span className='icon'><img src={sbulb} alt="img" className='sbulb' /></span>
+                        Hackathon
+                        <span className='purple'>1.0<img src={chain} alt="img" className='chain' /><img src={spark} className='spark' alt="img" /></span>
+                    </h1>
+                    <p className='sub'>Participate in getlinked tech Hackathon 2023 stand
                         a chance to win a Big prize
                     </p>
-                    <div className='btn animate__animated animate__wobble'>
+                    <div className='btn animate__animated animate__wobble animate__delay-4s'>
                         <NavButton>Register</NavButton>
                     </div>
                     <div className='timer-con'>
@@ -61,8 +66,7 @@ const LineCon = styled.div`
     flex-direction:column;
     align-items:flex-end; 
     margin:30px 0; 
-    div{
-        width:100%;
+    div{ 
         display:flex;  
         justify-content:flex-end; 
     }
@@ -82,9 +86,10 @@ const LineCon = styled.div`
             white-space: nowrap;
         }
         div{ 
+            margin-right:-49px;
             img{ 
-                width:40%;
-                height:40%;
+                width:60%;
+                height:60%;
             }
         }
     }
@@ -95,19 +100,60 @@ const LeftSide = styled.div`
     display:flex;
     flex-direction:column;
     justify-content:center; 
-    h1{ 
+    h1{  
         font-family: 'Clash Display', sans-serif;
         color: #FFF; 
-        font-size: 66px;
+        font-size: 60px;
         font-style: normal;
         font-weight: 700;
         line-height: normal;
         text-align:left;
-        line-height: 1.3; 
-        span{
-            color: #D434FE;
+        line-height: 1.3;  
+        .icon{
+            position:relative; 
+            .sbulb{ 
+                position:absolute;
+                top:-55px; 
+                right:15px;
+                @media (max-width: 1200px) {  
+                    right:18px;
+                    top:-17px;
+                    width:18px;
+                    height:26px;
+                }
+                
+            }
         }
-        @media (max-width: 1200px) {  
+        .purple{ 
+            position:relative;
+            color: #D434FE;
+            .chain{
+                width:100%;
+                height:100%;
+                position:absolute;
+                bottom:0;
+                right:-90px;
+                @media (max-width: 1200px) {  
+                    right:-40px;
+                    width:90%;
+                    height:90%;
+                }
+            }
+            .spark{
+                width:100%;
+                height:100%;
+                position:absolute;
+                right:-150px;
+                bottom:0;
+                @media (max-width: 1200px) {  
+                    right:-70px;
+                    width:90%;
+                    height:90%;
+                }
+            }
+        }
+        @media (max-width: 1200px) { 
+            width:80%; 
             font-size: 40px;  
             text-align:center;
             margin-bottom:10px;
@@ -116,7 +162,7 @@ const LeftSide = styled.div`
             font-size: 32px; 
         }  
     }
-    p{ 
+    .sub{ 
         color: #FFF;
         font-family: Montserrat;
         font-size: 20px;
@@ -140,22 +186,24 @@ const LeftSide = styled.div`
     }
     .btn{
         display:flex;
-        margin-bottom:20px;
+        margin-bottom:20px; 
         @media (max-width: 1200px) { 
             width:100%;
             justify-content:center;
         } 
     }
-    .timer-con{
-        width:100%;
-        display:flex; 
+    .timer-con{  
+        width:60%;
+        display:grid; 
+        grid-template-columns:auto auto auto;
+        column-gap:20px; 
+        margin-bottom:10px;
         p{
             color: #FFF;
             font-family: 'Unica One', cursive;
             font-size: 64px;
             font-style: normal;
-            font-weight: 400; 
-            margin-right:30px;
+            font-weight: 400;   
             span{
                 color: #FFF;
                 font-family: Montserrat;
@@ -163,18 +211,20 @@ const LeftSide = styled.div`
                 font-style: normal;
                 font-weight: 400;
                 line-height: 133%; /* 18.62px */ 
+                
             }
         }
-        @media (max-width: 1200px) { 
+        @media (max-width: 1200px) {
+            width:auto; 
             justify-content:center;
-            p{
-                text-align:center;
-                font-size: 48px; 
+            p{ 
+                font-size: 48px;  
             }
         } 
     }
     @media (max-width: 1200px) { 
         padding-left: 0px;
+        align-items:center;
     }
 `;
 
