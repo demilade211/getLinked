@@ -36,6 +36,9 @@ const FourthSection = () => {
                     to the rules and guidelines of the hackathon, including deadlines, use of
                     specific technologies or APIs, and any other competition-specific requirements.
                 </p>
+                <div className='btn-con'>
+                    <NavButton>Read More</NavButton>
+                </div>
             </Right>
         </Con>
     )
@@ -119,9 +122,31 @@ const Right = styled.div`
         }
 
     } 
+    .btn-con{
+        width:100%;
+        display:flex;
+        justify-content:center;
+        margin-top:40px;
+    }
     @media (max-width: 1200px) { 
         width:100%;
     } 
 `;
+
+const NavButton = styled.button` 
+    min-width: 172px;
+    height: 44px;   
+    padding: 10px 24px;
+    border-radius: 4px;
+    border:none;
+    background: linear-gradient(270deg, #903AFF 0%, #D434FE 56.42%, #FF26B9 99.99%, #FE34B9 100%); 
+    line-height: normal; 
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;  
+`;
+
 
 export default FourthSection

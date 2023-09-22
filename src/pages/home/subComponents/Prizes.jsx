@@ -14,7 +14,7 @@ const Prizes = () => {
       <Right>
         <h3>Prizes and <br /> <span>Rewards</span></h3>
         <p>
-          Evaluate the uniqueness and creativity of the
+          Highlight of the prizes or rewards for winner and for participants
         </p>
         <div className='medals-con'>
           <div className='in-con'>

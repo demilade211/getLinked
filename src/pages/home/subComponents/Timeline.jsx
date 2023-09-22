@@ -93,8 +93,7 @@ const Timeline = () => {
             <h3>Teams Registration begins</h3>
             <p>
               All teams whom idea has been accepted into <br />
-              getlinked tech hackathon 1.0 2023 are formally <br />
-              announced
+              getlinked tech hackathon 1.0 2023 are formally announced<br /> 
             </p>
             <h3>November 18, 2023</h3>
           </MobileTextRightA>
