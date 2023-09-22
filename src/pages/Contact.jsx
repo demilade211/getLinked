@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import styled from 'styled-components';
 import AppLayout from '../layouts/AppLayout';
 import fb from "./home/images/fb.svg"
@@ -7,8 +7,46 @@ import insta from "./home/images/insta.svg"
 import lnkdin from "./home/images/lnkdin.svg"
 import AuthInput from "../components/auth/AuthInput"
 import AuthTextArea from "../components/auth/AuthTextArea"
+import { submitContact } from "../services/contact"
+import toast from "react-hot-toast";
 
 const Contact = () => {
+  const [feedback, setFeedback] = React.useState({
+    email: "",
+    phone_number: "",
+    first_name: "",
+    message: "",
+  });
+  const [buttonDisabled, setButtonDisabled] = React.useState(true)
+  const [categories, setCategory] = React.useState([]);
+  const [loading, setLoading] = React.useState(false)
+
+  const handleSubmit = async () => {
+    try {
+      setLoading(true)
+      const response = await submitContact(feedback);
+      toast.success("Sent Successfully")
+      setLoading(false)
+      setFeedback(prev=>({email:"",phone_number:"",message:"",first_name:""}))
+    } catch (error) {
+      setLoading(false)
+      toast.error(error.message);
+    }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target// takes the name and vale of event currently changing
+    setFeedback(prev => ({ ...prev, [name]: value }))
+
+  }
+
+  useEffect(() => {
+    const isComplete = Object.values(feedback).every(item => Boolean(item))//check if all is not empty
+    isComplete ? setButtonDisabled(false) : setButtonDisabled(true) 
+  }, [feedback]);
+
+  console.log(feedback,buttonDisabled);
+
   return (
     <AppLayout>
       <Con>
@@ -39,13 +77,13 @@ const Contact = () => {
         <Right>
           <div className='form-con'>
             <h2>Questions or need assistance?<br />Let us know about it!</h2>
-            <p className='sub'>Email us below to any question related <br/>to our event</p>
-            <AuthInput place="First Name" />
-            <AuthInput place="Topic" />
-            <AuthInput place="Mail" />
-            <AuthTextArea placeholder="Message" />
+            <p className='sub'>Email us below to any question related <br />to our event</p>
+            <AuthInput type="text" place="First Name" onChange={handleChange} name="first_name" value={feedback.first_name}/>
+            <AuthInput type="tel" place="Phone Number" onChange={handleChange} name="phone_number" value={feedback.phone_number}/>
+            <AuthInput type="email" place="Mail" onChange={handleChange} name="email" value={feedback.email}/>
+            <AuthTextArea placeholder="Message" onChange={handleChange} name="message" value={feedback.message}/>
             <div className='btn'>
-              <NavButton>Submit</NavButton>
+              <NavButton disabled={buttonDisabled} onClick={handleSubmit}>{`${loading ? 'loading...' : 'Submit'}`}</NavButton>
             </div>
           </div>
         </Right>

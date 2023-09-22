@@ -1,6 +1,6 @@
 import axios from ".";
 
-export const Contact = async (message) => {
+export const submitContact = async (message) => {
     try {
       const response = await axios.post(
         "/hackathon/contact-form",

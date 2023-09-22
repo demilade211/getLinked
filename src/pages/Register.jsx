@@ -77,8 +77,7 @@ const Register = () => {
         isComplete ? setButtonDisabled(false) : setButtonDisabled(true)
         handleCategory()
     }, [user]);
-
-    console.log(user,buttonDisabled); 
+ 
 
     return (
         <AppLayout>
@@ -103,8 +102,8 @@ const Register = () => {
                             <AuthInputWithLabel type="tel" place="Enter your phone number" label="Phone" onChange={handleChange} name="phone_number" value={user.phone_number} />
                             <AuthInputWithLabel type="email" place="Enter your email address" label="Email" onChange={handleChange} name="email" value={user.email} />
                             <AuthInputWithLabel type="text" place="What is your group project topic" label="Project Topic" onChange={handleChange} name="project_topic" value={user.project_topic} />
-                            <AuthSelect label="Category" options={categories} value={user.category} onChange={handleSelectCat} />
-                            <AuthSelect label="Group Size" options={linkTypes} value={user.group_size} onChange={handleSelectSize} />
+                            <AuthSelect label="Category" options={categories}  onChange={handleSelectCat} />
+                            <AuthSelect label="Group Size" options={linkTypes}  onChange={handleSelectSize} />
                         </GridCon>
                         <p className='info'>Please review your registration details before submitting</p>
                         <div className='check'>
