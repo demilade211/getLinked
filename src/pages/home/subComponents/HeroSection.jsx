@@ -1,39 +1,92 @@
 import React from 'react'
 import styled from 'styled-components';
 import spark from "../images/spark.svg"
-import chain from "../images/chain.svg"
+import line from "../images/line.svg"
 import glow from "../images/glow.svg"
 
 const HeroSection = () => {
     return (
-        <FirstSectionCon>
-            <LeftSide>
-                <h1>getlinked Tech Hackathon <span>1.0</span></h1>
-                <p>Participate in getlinked tech Hackathon 2023 stand
-                    a chance to win a Big prize</p>
-                <div className='btn animate__animated animate__wobble'>
-                    <NavButton>Register</NavButton>
+        <Con>
+            <LineCon>
+                <h1>Igniting a Revolution in HR Innovation</h1>
+                <div>
+                    <img src={line} alt="img" />
                 </div>
-            </LeftSide>
-            <RigthSide>
-                <div className='img-con'>
-                    <img src={glow} alt="img" />
-                </div>
-            </RigthSide>
-        </FirstSectionCon>
+            </LineCon>
+            <FirstSectionCon>
+                <LeftSide>
+                    <h1>getlinked Tech Hackathon <span>1.0</span></h1>
+                    <p>Participate in getlinked tech Hackathon 2023 stand
+                        a chance to win a Big prize
+                    </p>
+                    <div className='btn animate__animated animate__wobble'>
+                        <NavButton>Register</NavButton>
+                    </div>
+                    <div className='timer-con'>
+                        <p>00<span>H</span></p>
+                        <p>00<span>M</span></p>
+                        <p>00<span>S</span></p>
+                    </div>
+                </LeftSide>
+                <RigthSide>
+                    <div className='img-con'>
+                        <img src={glow} alt="img" />
+                    </div>
+                </RigthSide>
+            </FirstSectionCon>
+        </Con>
     )
 }
 
-const FirstSectionCon = styled.section`  
+const Con = styled.section`  
+    width: 100%;  
+    margin-top:80px;  
+    padding:30px; 
+`;
+
+const FirstSectionCon = styled.div`  
     width: 100%;   
-    height:100vh;
-    display:grid; 
-    padding:20px;
+    display:grid;  
     grid-template-columns:45% 55%; 
     row-gap:10px;
-    margin-top:80px; 
+    
     @media (max-width: 1200px) { 
         grid-template-columns:100%; 
+    }
+`;
+
+const LineCon = styled.div`  
+    width: 100%;    
+    display:flex;  
+    flex-direction:column;
+    align-items:flex-end; 
+    margin:30px 0; 
+    div{
+        width:100%;
+        display:flex;  
+        justify-content:flex-end; 
+    }
+    h1{
+        color: #FFF;
+        font-family: Montserrat;
+        font-size: 36px;
+        font-style: italic;
+        font-weight: 700;
+        line-height: normal;
+    }
+    @media (max-width: 1200px) {  
+        align-items:center;  
+        h1{
+            text-align:center;
+            font-size: 16px;
+            white-space: nowrap;
+        }
+        div{ 
+            img{ 
+                width:40%;
+                height:40%;
+            }
+        }
     }
 `;
 
@@ -87,13 +140,41 @@ const LeftSide = styled.div`
     }
     .btn{
         display:flex;
+        margin-bottom:20px;
         @media (max-width: 1200px) { 
             width:100%;
             justify-content:center;
         } 
     }
+    .timer-con{
+        width:100%;
+        display:flex; 
+        p{
+            color: #FFF;
+            font-family: 'Unica One', cursive;
+            font-size: 64px;
+            font-style: normal;
+            font-weight: 400; 
+            margin-right:30px;
+            span{
+                color: #FFF;
+                font-family: Montserrat;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 133%; /* 18.62px */ 
+            }
+        }
+        @media (max-width: 1200px) { 
+            justify-content:center;
+            p{
+                text-align:center;
+                font-size: 48px; 
+            }
+        } 
+    }
     @media (max-width: 1200px) { 
-        padding-left: 15px;
+        padding-left: 0px;
     }
 `;
 
