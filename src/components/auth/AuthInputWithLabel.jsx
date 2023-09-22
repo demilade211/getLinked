@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from "styled-components";
 
-const AuthInputWithLabel  = ({ label,place,withIcon,image,type,onChange,name,value }) => {
+const AuthInputWithLabel  = ({ label,place,withIcon,image,type,onChange,name,value,errors }) => {
+    console.log(errors);
     return (
         <InputLabelCon>
             <Label>{label}</Label>
@@ -9,12 +10,23 @@ const AuthInputWithLabel  = ({ label,place,withIcon,image,type,onChange,name,val
                 {withIcon && <img src={image} alt="img" />}
                 <input type={type} placeholder={place} onChange={onChange} name={name} value={value}/>
             </InputCon>
+            {errors.inputName===name&&errors.isError && <ErrorMessage>{errors.message}</ErrorMessage>}
         </InputLabelCon>
     )
 }
 
 const InputLabelCon = styled.div`
     margin-bottom:30px;
+`;
+
+const ErrorMessage = styled.div` 
+    color: red;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top:5px;
 `;
 
 const Label = styled.div`

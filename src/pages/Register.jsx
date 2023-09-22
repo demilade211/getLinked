@@ -8,6 +8,7 @@ import AuthInputWithLabel from '../components/auth/AuthInputWithLabel';
 import AuthSelect from '../components/auth/AuthSelect';
 import { getCategoryList, register } from "../services/register"
 import toast from "react-hot-toast";
+import * as Yup from 'yup';
 
 const Register = () => {
 
@@ -19,6 +20,37 @@ const Register = () => {
 
     ]
 
+    const validationSchema = Yup.object().shape({
+        email: Yup.string()
+            .email('Invalid email format')
+            .required('Email is required'),
+        phone_number: Yup.string()
+            .matches(
+                /^(?:(?:\+|00)(?:\d{1,3}))?[-.\s]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/,
+                'Invalid phone number'
+            )
+            .required('Phone number is required'),
+        team_name: Yup.string().required('Team name is required'),
+        project_topic: Yup.string().required('Topic is required'),
+    });
+
+    const validateInput = async (inputValue, inputName) => {
+        try {
+            // Create a temporary schema based on the input field's name
+            const tempSchema = Yup.object().shape({
+                [inputName]: validationSchema.fields[inputName],
+            });
+
+            await tempSchema.validate({ [inputName]: inputValue });
+            setErrors(prev => ({ isError: false, message: "" }))
+            return true; // Validation passed
+        } catch (error) {
+            setErrors(prev => ({ isError: true, message: error.message, inputName: inputName })) // Validation failed, return error message
+        }
+    };
+
+
+
     const [user, setUser] = React.useState({
         email: "",
         phone_number: "",
@@ -27,6 +59,11 @@ const Register = () => {
         project_topic: "",
         category: 0,
         privacy_poclicy_accepted: false
+    });
+    const [errors, setErrors] = React.useState({
+        message: "",
+        isError: false,
+        inputName: ""
     });
     const [buttonDisabled, setButtonDisabled] = React.useState(true)
     const [categories, setCategory] = React.useState([]);
@@ -54,18 +91,19 @@ const Register = () => {
         }
     };
 
-    const handleChange = (e) => {
+    const handleChange = async (e) => {
         const { name, value } = e.target// takes the name and vale of event currently changing
+        const validationMessage = await validateInput(value, name);
         setUser(prev => ({ ...prev, [name]: value }))
-        
+
     }
     const handleSelectCat = (value) => { // takes the name and vale of event currently changing
         setUser(prev => ({ ...prev, category: value.value }))
-        
+
     }
     const handleSelectSize = (value) => {
         setUser(prev => ({ ...prev, group_size: value.value }))
-        
+
     }
 
     const handleCheck = (e) => {
@@ -77,7 +115,7 @@ const Register = () => {
         isComplete ? setButtonDisabled(false) : setButtonDisabled(true)
         handleCategory()
     }, [user]);
- 
+
 
     return (
         <AppLayout>
@@ -98,12 +136,12 @@ const Register = () => {
                         <h3>CREATE YOUR ACCOUNT</h3>
 
                         <GridCon>
-                            <AuthInputWithLabel type="text" place="Enter the name of your group" label="Team's Name" onChange={handleChange} name="team_name" value={user.team_name} />
-                            <AuthInputWithLabel type="tel" place="Enter your phone number" label="Phone" onChange={handleChange} name="phone_number" value={user.phone_number} />
-                            <AuthInputWithLabel type="email" place="Enter your email address" label="Email" onChange={handleChange} name="email" value={user.email} />
-                            <AuthInputWithLabel type="text" place="What is your group project topic" label="Project Topic" onChange={handleChange} name="project_topic" value={user.project_topic} />
-                            <AuthSelect label="Category" options={categories}  onChange={handleSelectCat} />
-                            <AuthSelect label="Group Size" options={linkTypes}  onChange={handleSelectSize} />
+                            <AuthInputWithLabel type="text" place="Enter the name of your group" label="Team's Name" onChange={handleChange} name="team_name" value={user.team_name} errors={errors} />
+                            <AuthInputWithLabel type="tel" place="Enter your phone number" label="Phone" onChange={handleChange} name="phone_number" value={user.phone_number} errors={errors} />
+                            <AuthInputWithLabel type="email" place="Enter your email address" label="Email" onChange={handleChange} name="email" value={user.email} errors={errors} />
+                            <AuthInputWithLabel type="text" place="What is your group project topic" label="Project Topic" onChange={handleChange} name="project_topic" value={user.project_topic} errors={errors} />
+                            <AuthSelect label="Category" options={categories} onChange={handleSelectCat} />
+                            <AuthSelect label="Group Size" options={linkTypes} onChange={handleSelectSize} />
                         </GridCon>
                         <p className='info'>Please review your registration details before submitting</p>
                         <div className='check'>

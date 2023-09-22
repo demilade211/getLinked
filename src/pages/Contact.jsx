@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components';
 import AppLayout from '../layouts/AppLayout';
 import fb from "./home/images/fb.svg"
@@ -9,13 +9,20 @@ import AuthInput from "../components/auth/AuthInput"
 import AuthTextArea from "../components/auth/AuthTextArea"
 import { submitContact } from "../services/contact"
 import toast from "react-hot-toast";
+import * as Yup from 'yup';
 
 const Contact = () => {
+
   const [feedback, setFeedback] = React.useState({
     email: "",
     phone_number: "",
     first_name: "",
     message: "",
+  });
+  const [errors, setErrors] = React.useState({
+    message: "",
+    isError: false,
+    inputName: ""
   });
   const [buttonDisabled, setButtonDisabled] = React.useState(true)
   const [categories, setCategory] = React.useState([]);
@@ -27,25 +34,55 @@ const Contact = () => {
       const response = await submitContact(feedback);
       toast.success("Sent Successfully")
       setLoading(false)
-      setFeedback(prev=>({email:"",phone_number:"",message:"",first_name:""}))
+      setFeedback(prev => ({ email: "", phone_number: "", message: "", first_name: "" }))
     } catch (error) {
       setLoading(false)
       toast.error(error.message);
     }
   };
 
-  const handleChange = (e) => {
+  const validationSchema = Yup.object().shape({
+    email: Yup.string()
+      .email('Invalid email format')
+      .required('Email is required'),
+    phone_number: Yup.string()
+      .matches(
+        /^(?:(?:\+|00)(?:\d{1,3}))?[-.\s]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/,
+        'Invalid phone number'
+      )
+      .required('Phone number is required'),
+    first_name: Yup.string().required('First name is required'),
+    message: Yup.string().required('Topic is required'),
+  });
+
+  const validateInput = async (inputValue, inputName) => {
+    try {
+      // Create a temporary schema based on the input field's name
+      const tempSchema = Yup.object().shape({
+        [inputName]: validationSchema.fields[inputName],
+      });
+
+      await tempSchema.validate({ [inputName]: inputValue });
+      setErrors(prev => ({ isError: false, message: "" }))
+      return true; // Validation passed
+    } catch (error) {
+      setErrors(prev => ({ isError: true, message: error.message, inputName: inputName })) // Validation failed, return error message
+    }
+  };
+
+  const handleChange = async(e) => {
     const { name, value } = e.target// takes the name and vale of event currently changing
+    const validationMessage = await validateInput(value, name);
     setFeedback(prev => ({ ...prev, [name]: value }))
 
   }
 
   useEffect(() => {
     const isComplete = Object.values(feedback).every(item => Boolean(item))//check if all is not empty
-    isComplete ? setButtonDisabled(false) : setButtonDisabled(true) 
+    isComplete ? setButtonDisabled(false) : setButtonDisabled(true)
   }, [feedback]);
 
-  console.log(feedback,buttonDisabled);
+  console.log(feedback, buttonDisabled);
 
   return (
     <AppLayout>
@@ -78,10 +115,10 @@ const Contact = () => {
           <div className='form-con'>
             <h2>Questions or need assistance?<br />Let us know about it!</h2>
             <p className='sub'>Email us below to any question related <br />to our event</p>
-            <AuthInput type="text" place="First Name" onChange={handleChange} name="first_name" value={feedback.first_name}/>
-            <AuthInput type="tel" place="Phone Number" onChange={handleChange} name="phone_number" value={feedback.phone_number}/>
-            <AuthInput type="email" place="Mail" onChange={handleChange} name="email" value={feedback.email}/>
-            <AuthTextArea placeholder="Message" onChange={handleChange} name="message" value={feedback.message}/>
+            <AuthInput type="text" place="First Name" onChange={handleChange} name="first_name" value={feedback.first_name} errors={errors}/>
+            <AuthInput type="tel" place="Phone Number" onChange={handleChange} name="phone_number" value={feedback.phone_number} errors={errors}/>
+            <AuthInput type="email" place="Mail" onChange={handleChange} name="email" value={feedback.email} errors={errors}/>
+            <AuthTextArea placeholder="Message" onChange={handleChange} name="message" value={feedback.message} errors={errors}/>
             <div className='btn'>
               <NavButton disabled={buttonDisabled} onClick={handleSubmit}>{`${loading ? 'loading...' : 'Submit'}`}</NavButton>
             </div>
