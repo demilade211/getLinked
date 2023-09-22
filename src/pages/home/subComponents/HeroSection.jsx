@@ -158,7 +158,8 @@ const LeftSide = styled.div`
             text-align:center;
             margin-bottom:10px;
         } 
-        @media (max-width: 500px) {   
+        @media (max-width: 500px) {  
+            width:100%;  
             font-size: 32px; 
         }  
     }

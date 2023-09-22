@@ -145,7 +145,7 @@ const Right = styled.div`
       }
       @media (max-width: 700px) { 
         grid-template-columns:100%;
-        margin-top:180px;
+        <margin-top:10></margin-top:10>0px;
       }
       .in-con{
         height:296px;
@@ -155,8 +155,18 @@ const Right = styled.div`
         display:flex;
         flex-direction:column;
         align-items:center;
+        @media (max-width: 1200px) { 
+          height:auto; 
+          padding:20px 0;
+        }
         .medal-img{
           margin-top:-50%;
+          @media (max-width: 1200px) { 
+            margin-top:-30%;
+          }
+          @media (max-width: 700px) { 
+            margin-top:0;
+          }
           img{
             width:89%;
             height:89%; 
@@ -164,13 +174,11 @@ const Right = styled.div`
               width:95%;
               height:95%; 
             }
-          }
-          @media (max-width: 1200px) { 
-            margin-top:-30%;
-          }
-          @media (max-width: 700px) { 
-            display:none;
-          }
+            @media (max-width: 700px) { 
+              width:100%;
+              height:100%; 
+            }
+          } 
         }
         .medal-values{
           width:100%; 
@@ -212,17 +220,33 @@ const Right = styled.div`
         border-radius: 8px;
         border: 1px solid #903AFF;
         background: rgba(144, 58, 255, 0.12);
-        .medal-img{
+        @media (max-width: 1200px) { 
+          height:auto; 
+          padding:20px 0;
+        }
+        .medal-img{ 
           margin-top:-60%; 
-          img{
+          @media (max-width: 700px) { 
+            margin-top:0; 
+            display:flex;
+            justify-content:center;
+          }
+          img{ 
             width:100%;
             height:100%;
+            @media (max-width: 700px) { 
+              width:90%;
+              height:90%;
+            }
           }
         }
         .medal-values{
           .amount{
             color:#903AFF;
             margin-top:40px;
+            @media (max-width: 1200px) { 
+              margin-top:0px;
+            }
           }
         }
       }
