@@ -138,6 +138,7 @@ const Contact = () => {
 
 const Con = styled.div`  
   width: 100%;  
+  min-height:100vh;
   border:1px solid black;
   background:#150E28; 
   margin-top:80px;

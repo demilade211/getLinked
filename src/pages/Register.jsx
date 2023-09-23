@@ -180,6 +180,7 @@ const Con = styled.div`
     background-image: url('/images/Register Page New.png');
     background-position: center center;
     background-size: 100% 100%;
+    min-height:100vh;
     @media (max-width: 1200px) {  
         grid-template-columns:100%;  
         background-image: url('/images/Register Page - Mobile.png');

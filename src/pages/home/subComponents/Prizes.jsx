@@ -62,6 +62,7 @@ const Con = styled.section`
     padding:100px 20px; 
     background-image: url('/images/Testimonials (1).png');
     background-position: center center;
+    margin-top:50px;
     @media (max-width: 1200px) { 
         flex-direction:column;
     }

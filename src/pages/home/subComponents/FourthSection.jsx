@@ -130,8 +130,12 @@ const Right = styled.div`
     .btn-con{
         width:100%;
         display:flex;
-        justify-content:center;
+        justify-content:flex-start;
         margin-top:40px;
+        @media (max-width: 1200px) { 
+            width:100%;
+            justify-content:center;
+        } 
     }
     @media (max-width: 1200px) { 
         width:100%;
