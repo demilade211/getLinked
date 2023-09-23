@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import AppLayout from '../layouts/AppLayout';
 import manondesk from "./home/images/manondesk.svg"
 import fw from "./home/images/fw.svg"
-import sw from "./home/images/sw.svg"
+import sw from "./home/images/sw.svg" 
 import AuthInputWithLabel from '../components/auth/AuthInputWithLabel';
 import AuthSelect from '../components/auth/AuthSelect';
 import { getCategoryList, register } from "../services/register"
@@ -170,16 +170,20 @@ const Register = () => {
 }
 
 const Con = styled.div`  
-  width: 100%;  
-  border:1px solid black;
-  background:#150E28; 
-  margin-top:80px;
-  display:grid;
-  grid-template-columns:45% 55%;
-  padding:40px;
-  @media (max-width: 1200px) {  
-    grid-template-columns:100%;  
-  }
+    width: 100%;  
+    border:1px solid black;
+    background:#150E28; 
+    margin-top:80px;
+    display:grid;
+    grid-template-columns:45% 55%;
+    padding:40px;
+    background-image: url('/images/Register Page New.png');
+    background-position: center center;
+    background-size: 100% 100%;
+    @media (max-width: 1200px) {  
+        grid-template-columns:100%;  
+        background-image: url('/images/Register Page - Mobile.png');
+    }
 `;
 
 const Left = styled.div`  

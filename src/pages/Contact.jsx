@@ -143,9 +143,13 @@ const Con = styled.div`
   margin-top:80px;
   display:grid;
   grid-template-columns:50% 50%;
+  background-image: url('/images/Contact Page New.png');
+  background-position: center center;
+  background-size: 100% 100%;
   padding:40px 0;
   @media (max-width: 1200px) {  
     grid-template-columns:100%;  
+    background-image: url('/images/Contact Page -  Mobile.png');
   }
 `;
 
