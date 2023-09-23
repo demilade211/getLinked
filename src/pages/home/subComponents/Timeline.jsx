@@ -151,6 +151,9 @@ const Con = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center; 
+  border-top:1px solid rgba(255, 255, 255, 0.18);  
+  background-image: url('/images/Timeline Bg - Stars.png');
+  background-position: center center; 
   h1{
     color: #FFF;
     font-family: Clash Display;
@@ -159,6 +162,7 @@ const Con = styled.div`
     font-weight: 700;
     line-height: 0%; /* 0px */
     text-align:center;
+    margin-top:50px;
     margin-bottom:30px;
     @media (max-width: 1200px) {  
       font-size: 20px; 

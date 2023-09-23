@@ -54,6 +54,9 @@ const Con = styled.section`
     flex-direction:column;
     align-items:center;
     padding:100px 20px;
+    background-image: url('/images/Partners Background Container.png');
+    background-position: center center;
+    background-size: 100% 100%;
     @media (max-width: 1200px) { 
         flex-direction:column;
     }

@@ -126,6 +126,9 @@ const Register = () => {
                 <Right>
                     <div className='form-con'>
                         <h2>Register</h2>
+                        <div className='img-con'>
+                            <img src={manondesk} alt="img" />
+                        </div>
                         <div className='sub-con'>
                             <p className='sub-head'>Be part of this movement!</p>
                             <div className='emo'>
@@ -198,7 +201,7 @@ const Right = styled.div`
         background: none;
         box-shadow: none;
         padding:0px;
-      }
+    }
     h2{
         color: #D434FE;
         font-family: Clash Display;
@@ -206,6 +209,16 @@ const Right = styled.div`
         font-style: normal;
         font-weight: 600;
         line-height: normal; 
+    }
+    .img-con{
+        display:none; 
+        img{
+            width:80%;
+            height:80%;
+        }
+        @media (max-width: 1200px) {  
+            display:flex;
+          }
     }
     .sub-con{
         display:flex;

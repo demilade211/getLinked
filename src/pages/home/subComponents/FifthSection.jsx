@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import cloudman from "../images/cloudman.svg"
+import cloudman from "../images/cloudman1.png"
 
 const FifthSection = () => {
     let que = [
@@ -39,8 +39,13 @@ const Con = styled.section`
     flex-direction: row-reverse;
     align-items:center;
     padding:100px 20px;
+    border-top:1px solid rgba(255, 255, 255, 0.18); 
+    background-image: url('/images/FAQ Bg.png');
+    background-position: center center;
+    background-size: 100% 100%;
     @media (max-width: 1200px) { 
         flex-direction:column-reverse;
+        background:none;
     }
 `;
 

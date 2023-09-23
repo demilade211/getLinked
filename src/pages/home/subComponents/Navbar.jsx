@@ -66,6 +66,9 @@ const LandingNavbarCon = styled.header`
     align-items:center; 
     border-bottom:1px solid rgba(255, 255, 255, 0.18);
     background:#150E28; 
+    background-image: url('/images/Header Bg.png');
+    background-position: center center;
+    background-size: 100% 100%;
     @media (max-width: 1200px) { 
         padding:0px 50px;  
     }
@@ -77,6 +80,8 @@ const LandingNavbarCon = styled.header`
         align-items:center; 
         img{
             margin-right:50px;
+            width:150px;
+            height:150px;
         }
     }
     .right{ 

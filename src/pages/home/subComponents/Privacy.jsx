@@ -56,8 +56,12 @@ const Con = styled.section`
     flex-direction: row-reverse; 
     padding:100px 20px;
     border-top:1px solid rgba(255, 255, 255, 0.18);  
+    background-image: url('/images/Privacy Background.png');
+    background-position: center center;
+    background-size: 100% 100%;
     @media (max-width: 1200px) { 
         flex-direction:column-reverse;
+        background:none;
     }
 `;
 

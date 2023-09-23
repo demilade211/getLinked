@@ -28,7 +28,10 @@ const Con = styled.section`
     width: 100%;     
     display:flex; 
     align-items:center;
-    padding:20px;  
+    padding:50px 20px; 
+    border-top:1px solid rgba(255, 255, 255, 0.18);  
+    background-image: url('/images/Second Section Bg.png');
+    background-position: 100% 100%; 
     @media (max-width: 1200px) { 
         flex-direction:column;
     }

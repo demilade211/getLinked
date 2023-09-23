@@ -29,8 +29,12 @@ const Con = styled.section`
     flex-direction: row-reverse;
     align-items:center;
     padding:20px;  
+    border-top:1px solid rgba(255, 255, 255, 0.18);  
+    background-image: url('/images/Third Section Background.svg');
+    background-position: center center;
     @media (max-width: 1200px) { 
         flex-direction:column;
+        background:none;
     }
 `;
 
@@ -56,7 +60,7 @@ const Right = styled.div`
     display:flex;
     flex-direction:column;
     justify-content:center; 
-    padding-left:50px; 
+    padding-left:50px;  
     @media (max-width: 1200px) { 
         padding-left:0px;  
     }

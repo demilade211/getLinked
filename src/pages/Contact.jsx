@@ -70,7 +70,7 @@ const Contact = () => {
     }
   };
 
-  const handleChange = async(e) => {
+  const handleChange = async (e) => {
     const { name, value } = e.target// takes the name and vale of event currently changing
     const validationMessage = await validateInput(value, name);
     setFeedback(prev => ({ ...prev, [name]: value }))
@@ -115,12 +115,19 @@ const Contact = () => {
           <div className='form-con'>
             <h2>Questions or need assistance?<br />Let us know about it!</h2>
             <p className='sub'>Email us below to any question related <br />to our event</p>
-            <AuthInput type="text" place="First Name" onChange={handleChange} name="first_name" value={feedback.first_name} errors={errors}/>
-            <AuthInput type="tel" place="Phone Number" onChange={handleChange} name="phone_number" value={feedback.phone_number} errors={errors}/>
-            <AuthInput type="email" place="Mail" onChange={handleChange} name="email" value={feedback.email} errors={errors}/>
-            <AuthTextArea placeholder="Message" onChange={handleChange} name="message" value={feedback.message} errors={errors}/>
+            <AuthInput type="text" place="First Name" onChange={handleChange} name="first_name" value={feedback.first_name} errors={errors} />
+            <AuthInput type="tel" place="Phone Number" onChange={handleChange} name="phone_number" value={feedback.phone_number} errors={errors} />
+            <AuthInput type="email" place="Mail" onChange={handleChange} name="email" value={feedback.email} errors={errors} />
+            <AuthTextArea placeholder="Message" onChange={handleChange} name="message" value={feedback.message} errors={errors} />
             <div className='btn'>
               <NavButton disabled={buttonDisabled} onClick={handleSubmit}>{`${loading ? 'loading...' : 'Submit'}`}</NavButton>
+            </div> 
+            <h3>Share on</h3>
+            <div className='mobile-socials'>
+              <div><img src={insta} alt="img" /></div>
+              <div><img src={x} alt="img" /></div>
+              <div><img src={fb} alt="img" /></div>
+              <div><img src={lnkdin} alt="img" /></div>
             </div>
           </div>
         </Right>
@@ -231,6 +238,32 @@ const Right = styled.div`
       display:flex; 
       justify-content:center;
     }
+    h3{
+      display:none;
+      color: #D434FE;
+      font-family: Montserrat;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      text-align:center;
+      margin-bottom:10px;
+      @media (max-width: 1200px) {  
+        display:block;
+      }
+    }
+    .mobile-socials{
+      display:none;
+      @media (max-width: 1200px) {  
+        width:100%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        img{
+            margin-right:10px;
+        }
+      }
+    }
   }
 `;
 
@@ -247,6 +280,7 @@ const NavButton = styled.button`
     font-size: 16px;
     font-style: normal;
     font-weight: 400;  
+    margin-bottom:30px;
 `;
 
 export default Contact

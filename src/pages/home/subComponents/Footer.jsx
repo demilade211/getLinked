@@ -73,6 +73,8 @@ const Footer = () => {
 const Con = styled.section`  
     width: 100%;      
     padding:20px;   
+    background-image: url('/images/Footer background.png');
+    background-position: center center;  
     p{ 
         color: #FFF;
         font-family: Montserrat;

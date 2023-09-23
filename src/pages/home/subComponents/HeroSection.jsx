@@ -46,7 +46,9 @@ const HeroSection = () => {
 const Con = styled.section`  
     width: 100%;  
     margin-top:80px;  
-    padding:30px; 
+    padding:30px;   
+    background-image: url('/images/New Hero Slice.png');
+    background-position: center center;
 `;
 
 const FirstSectionCon = styled.div`  

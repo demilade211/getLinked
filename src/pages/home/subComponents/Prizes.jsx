@@ -59,7 +59,9 @@ const Con = styled.section`
     width: 100%;     
     display:flex; 
     align-items:center;
-    padding:100px 20px;
+    padding:100px 20px; 
+    background-image: url('/images/Testimonials (1).png');
+    background-position: center center;
     @media (max-width: 1200px) { 
         flex-direction:column;
     }
