@@ -77,6 +77,7 @@ const LandingNavbarCon = styled.header`
     .left{ 
         display:flex;
         align-items:center; 
+        cursor:pointer;
         img{
             margin-right:50px;
             width:150px;
@@ -191,6 +192,11 @@ const NavButton = styled.button`
     font-style: normal;
     font-weight: 400; 
     cursor:pointer;
+    &:hover {
+        background: none; /* Remove background color on hover */
+        border: 2px solid #9A39FF; /* Add border on hover */
+        color: #FFF; /* Text color on hover */
+      }
     @media (max-width: 1200px) { 
         margin-left:0px;  
     }

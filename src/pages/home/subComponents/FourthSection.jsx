@@ -54,7 +54,7 @@ const Con = styled.section`
     @media (max-width: 1200px) { 
         flex-direction:column;
         background:url('/images/Judging Criteria Mobile.png');
-        background-position: 100% 100%;
+        background-size: 100% 100%;
     }
 `;
 
@@ -65,8 +65,12 @@ const Left = styled.div`
     justify-content:center;
     padding:20px;   
     img{
-        width:100%;
-        height:100%;
+        width:80%;
+        height:90%;
+        @media (max-width: 1200px) { 
+            width:100%;
+            height:100%;
+        }
     }
     @media (max-width: 1200px) { 
         width:100%;
