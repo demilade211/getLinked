@@ -8,6 +8,7 @@ import AuthInputWithLabel from '../components/auth/AuthInputWithLabel';
 import AuthSelect from '../components/auth/AuthSelect';
 import { getCategoryList, register } from "../services/register"
 import toast from "react-hot-toast";
+import FeedbackModal from '../components/FeedbackModal';
 import * as Yup from 'yup';
 
 const Register = () => {
@@ -68,6 +69,13 @@ const Register = () => {
     const [buttonDisabled, setButtonDisabled] = React.useState(true)
     const [categories, setCategory] = React.useState([]);
     const [loading, setLoading] = React.useState(false)
+    const [showFeedback, setShowFeedback] = React.useState({
+        show: false,
+        message: ""
+    });
+
+    const handleFeedClose = () => setShowFeedback((prev) => ({ ...prev, show: false }));
+
 
     const handleRegister = async () => {
         try {
@@ -75,6 +83,7 @@ const Register = () => {
             const response = await register(user);
             console.log(response);
             setLoading(false)
+            setShowFeedback((prev) => ({ ...prev, show: true }))
         } catch (error) {
             setLoading(false)
             toast.error(error.message);
@@ -120,6 +129,7 @@ const Register = () => {
     return (
         <AppLayout>
             <Con>
+            <FeedbackModal mOpen={showFeedback.show} handleModClose={handleFeedClose} message={showFeedback.message} />
                 <Left>
                     <img src={manondesk} alt="img" />
                 </Left>

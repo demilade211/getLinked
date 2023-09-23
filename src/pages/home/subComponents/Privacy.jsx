@@ -62,6 +62,8 @@ const Con = styled.section`
     @media (max-width: 1200px) { 
         flex-direction:column-reverse;
         background:none;
+        background:url('/images/Privacy Section Mobile.png');
+        background-size: 100% 100%;
     }
 `;
 

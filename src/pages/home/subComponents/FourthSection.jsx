@@ -48,12 +48,13 @@ const Con = styled.section`
     display:flex; 
     align-items:center;
     padding:20px;  
-    border-top:1px solid rgba(255, 255, 255, 0.18); 
     background-image: url('/images/Judging Criteria Bg.png');
     background-position: center center;
     background-size: 100% 100%;
     @media (max-width: 1200px) { 
         flex-direction:column;
+        background:url('/images/Judging Criteria Mobile.png');
+        background-position: 100% 100%;
     }
 `;
 

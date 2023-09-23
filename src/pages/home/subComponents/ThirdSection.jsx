@@ -27,14 +27,15 @@ const Con = styled.section`
     width: 100%;     
     display:flex; 
     flex-direction: row-reverse;
-    align-items:center;
-    padding:20px;  
+    align-items:center; 
     border-top:1px solid rgba(255, 255, 255, 0.18);  
     background-image: url('/images/Third Section Background.svg');
     background-position: center center;
     @media (max-width: 1200px) { 
         flex-direction:column;
-        background:none;
+        background:url('/images/Rules and Guidelines Mobile.png');
+        background-size: 100% 100%; 
+        padding:20px;
     }
 `;
 
