@@ -5,8 +5,11 @@ import sbulb from "../images/line1.svg"
 import chain from "../images/chain.svg"
 import line from "../images/line.svg"
 import glow from "../images/glow.svg"
+import man from "../images/man.svg"
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
+    const navigate = useNavigate();
     return (
         <Con>
             <LineCon className='animate__animated animate__bounce animate__delay-2s'>
@@ -25,7 +28,7 @@ const HeroSection = () => {
                         a chance to win a Big prize
                     </p>
                     <div className='btn animate__animated animate__wobble animate__delay-4s'>
-                        <NavButton>Register</NavButton>
+                        <NavButton onClick={() => navigate("/register")}>Register</NavButton>
                     </div>
                     <div className='timer-con'>
                         <p>00<span>H</span></p>
@@ -35,7 +38,8 @@ const HeroSection = () => {
                 </LeftSide>
                 <RigthSide>
                     <div className='img-con'>
-                        <img src={glow} alt="img" />
+                        <img className='man' src={man} alt="img" />
+                        <img className='glow' src={glow} alt="img" />
                     </div>
                 </RigthSide>
             </FirstSectionCon>
@@ -234,17 +238,23 @@ const LeftSide = styled.div`
 const RigthSide = styled.div`  
     display:flex; 
     justify-content:center;
-    padding:20px 0; 
-    .img-con{ 
+    padding:20px 0;  
+    .img-con{  
+        position:relative;
         width:80%;
         display:flex; 
-        align-items:center;
-        background-image: url('/images/man.svg');
-        background-position: center center;
-        background-size: 100% 100%;
-        img{
+        align-items:center; 
+        .man{ 
+            width:100%;
+            height:100%;
+            mix-blend-mode: luminosity;
+        }
+        .glow{  
+            position:absolute;
+            left:0;
             width:86%;
             height:86%;
+            mix-blend-mode: hard-light;
         }
         @media (min-width: 700px) and (max-width: 1200px) { 
             width:60%;

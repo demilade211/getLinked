@@ -17,4 +17,17 @@ export const selectStyle = {
         color: "#FFF",
     }),
     indicatorSeparator: (styles) => ({ ...styles, display: "none" }),
+    placeholder: (base) => ({
+        ...base,
+        color: "rgba(255, 255, 255, 0.5)",
+        whiteSpace: "nowrap"
+    }),
+    input: (base) => ({
+        ...base,
+        color: "#fff",
+    }),
+    singleValue: (base) => ({
+        ...base,
+        color: "#fff",
+    }),
 };
