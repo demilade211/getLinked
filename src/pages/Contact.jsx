@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import AppLayout from '../layouts/AppLayout';
 import fb from "./home/images/fb.svg"
 import x from "./home/images/x.svg"
+import back from "./home/images/back.svg"
 import insta from "./home/images/insta.svg"
 import lnkdin from "./home/images/lnkdin.svg"
 import AuthInput from "../components/auth/AuthInput"
@@ -113,6 +114,9 @@ const Contact = () => {
         </Left>
         <Right>
           <div className='form-con'>
+            <div className='back'>
+              <img src={back} alt="img" />
+            </div>
             <h2>Questions or need assistance?<br />Let us know about it!</h2>
             <p className='sub'>Email us below to any question related <br />to our event</p>
             <AuthInput type="text" place="First Name" onChange={handleChange} name="first_name" value={feedback.first_name} errors={errors} />
@@ -121,7 +125,7 @@ const Contact = () => {
             <AuthTextArea placeholder="Message" onChange={handleChange} name="message" value={feedback.message} errors={errors} />
             <div className='btn'>
               <NavButton disabled={buttonDisabled} onClick={handleSubmit}>{`${loading ? 'loading...' : 'Submit'}`}</NavButton>
-            </div> 
+            </div>
             <h3>Share on</h3>
             <div className='mobile-socials'>
               <div><img src={insta} alt="img" /></div>
@@ -219,6 +223,13 @@ const Right = styled.div`
       background: none;
       box-shadow: none;
       padding:0px;
+    }
+    .back{
+      display:none;
+      @media (max-width: 1200px) {   
+        display:flex; 
+        margin-bottom:20px;
+      }
     }
     h2{
       color: #D434FE;

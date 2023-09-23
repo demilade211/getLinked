@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Timeline = () => {
 
   return (
-    <Con>
+    <Con id='timeline'>
       <h1>Timeline</h1>
       <p className='sub'>Here is the breakdown of the time we anticipate <br />
         using for the upcoming event.

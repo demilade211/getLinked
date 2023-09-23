@@ -5,7 +5,7 @@ import bulb from "../images/bulb.svg"
 
 const SecondSection = () => {
     return (
-        <Con>
+        <Con id="overview">
             <Left className='btn animate__animated animate__fadeInLeft animate__delay-1s'>
                 <img src={bulb} alt="img" />
             </Left>

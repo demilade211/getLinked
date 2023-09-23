@@ -21,9 +21,9 @@ const Navbar = () => {
             </div>
             <div className='right'>
                 <nav>
-                    <span><Link href={`/`}>Timeline</Link></span>
-                    <span><Link href={`/`}>Overview</Link></span>
-                    <span><Link href={`/`}>FAQs</Link></span>
+                    <span><a href={`#timeline`}>Timeline</a></span>
+                    <span><a href={`#overview`}>Overview</a></span>
+                    <span><a href={`#faq`}>FAQs</a></span>
                     <span><Link to="/contact">Contact</Link></span>
                 </nav>
                 <div>

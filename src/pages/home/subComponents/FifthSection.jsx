@@ -12,7 +12,7 @@ const FifthSection = () => {
         "Can I work on a project I started before the hackathon?"
     ]
     return (
-        <Con>
+        <Con id='faq'>
             <Left>
                 <img src={cloudman} alt="img" />
             </Left>

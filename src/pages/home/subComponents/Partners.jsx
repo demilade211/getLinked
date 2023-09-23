@@ -96,15 +96,15 @@ const PartnersBox = styled.section`
     align-items:center;
     padding:20px;
     @media (max-width: 1200px) { 
-      width: 90%;    
+      width: 98%;    
     }
     .grid-con{
       width: 80%; 
       display:grid; 
-      grid-template-columns:1fr 1fr 1fr;  
+      grid-template-columns: repeat(3, minmax(calc(33.33% - 20px), 1fr)); 
       justify-content:center;
       @media (max-width: 1200px) { 
-        grid-template-columns: 1fr; 
+          
       }
       div{ 
         position:relative;
@@ -114,6 +114,17 @@ const PartnersBox = styled.section`
         justify-content:center;
         align-items:center; 
         border:none; 
+        img{
+          object-fit: contain; 
+          @media (max-width: 1200px) { 
+            width: 100%;
+            height: 100%;
+          }
+          @media (max-width: 700px) { 
+            width: 50.99px;
+            height: 50.234px;
+          }
+        }
       }
       .no-right{
         border-right:none;
@@ -131,7 +142,7 @@ const HorizontalDivider = styled.section`
   bottom:0;
   background: #D434FE;
   @media (max-width: 1200px) { 
-    display:none; 
+    height: 2px;
   }
 `;
 
@@ -142,7 +153,7 @@ const HorizontalDividers = styled.section`
   bottom:0;
   background: #D434FE;
   @media (max-width: 1200px) { 
-    display:none; 
+    height: 2px;
   }
 `;
 
@@ -153,7 +164,8 @@ const VerticalDivider = styled.section`
   position:absolute;   
   right:0;
   @media (max-width: 1200px) { 
-    display:none; 
+    width: 2px;
+    height: 80%;
   }
 `;
 
