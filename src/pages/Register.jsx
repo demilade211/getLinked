@@ -224,8 +224,12 @@ const Right = styled.div`
         font-style: normal;
         font-weight: 600;
         line-height: normal; 
+        @media (max-width: 1200px) {  
+            font-size: 15px;
+        }
     }
     .img-con{
+        width:100%;
         display:none; 
         img{
             width:80%;
@@ -233,6 +237,7 @@ const Right = styled.div`
         }
         @media (max-width: 1200px) {  
             display:flex;
+            justify-content:center;
           }
     }
     .sub-con{
@@ -246,6 +251,10 @@ const Right = styled.div`
             font-style: normal;
             font-weight: 400;
             line-height: normal;
+            @media (max-width: 1200px) {  
+                font-size: 12px;
+            }
+            
         }
         .emo{
             width: 101px; 
@@ -262,6 +271,9 @@ const Right = styled.div`
         font-weight: 400;
         line-height: normal;
         margin-bottom:30px;
+        @media (max-width: 1200px) {  
+            font-size: 20px;
+        }
     }
     .info{
         color: #FF26B9;
